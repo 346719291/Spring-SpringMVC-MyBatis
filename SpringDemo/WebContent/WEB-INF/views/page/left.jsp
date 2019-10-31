@@ -53,7 +53,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
             <td height="23" background="${jpath}/static/images/main_47.gif" id="imgmenu1" class="menu_title" onMouseOver="this.className='menu_title2';" onClick="showsubmenu(1)" onMouseOut="this.className='menu_title';" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="18%">&nbsp;</td>
-                <td width="82%" class="STYLE1">业务中心</td>
+                <td width="82%" class="STYLE1">部门管理</td>
               </tr>
             </table></td>
           </tr>
@@ -67,7 +67,9 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
                     <td width="16%" height="25"><div align="center"><img src="${jpath}/static/images/left.gif" width="10" height="10" /></div></td>
                     <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="tab/tab.html" target='I2'> 短信群发</a></span></td>
+                          <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'">
+                          	<span class="STYLE3"><a href="${jpath}/page/tab.jsp" target='I2'> 短信群发</a></span>
+                          </td>
                         </tr>
                     </table></td>
                   </tr>
@@ -111,7 +113,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
             <td height="23" background="${jpath}/static/images/main_47.gif" id="imgmenu2" class="menu_title" onmouseover="this.className='menu_title2';" onclick="showsubmenu(2)" onmouseout="this.className='menu_title';" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td width="18%">&nbsp;</td>
-                  <td width="82%" class="STYLE1">系统管理</td>
+                  <td width="82%" class="STYLE1">职位管理</td>
                 </tr>
             </table></td>
           </tr>
@@ -160,7 +162,66 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
                 </table>
             </div></td>
           </tr>
-        </table>          </td>
+        </table>     
+     </td>
+      </tr>
+       <tr>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="23" background="${jpath}/static/images/main_47.gif" id="imgmenu2" class="menu_title" onmouseover="this.className='menu_title2';" onclick="showsubmenu(2)" onmouseout="this.className='menu_title';" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="18%">&nbsp;</td>
+                  <td width="82%" class="STYLE1">员工管理</td>
+                </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td background="${jpath}/static/images/main_51.gif" id="submenu2"><div class="sec_menu" >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td width="16%" height="25"><div align="center"><img src="${jpath}/static/images/left.gif" width="10" height="10" /></div></td>
+                          <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">系统配置</span></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td height="23"><div align="center"><img src="${jpath}/static/images/left.gif" width="10" height="10" /></div></td>
+                          <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">修改用户密码</span></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td height="23"><div align="center"><img src="${jpath}/static/images/left.gif" width="10" height="10" /></div></td>
+                          <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">数据更新</span></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td height="23"><div align="center"><img src="${jpath}/static/images/left.gif" width="10" height="10" /></div></td>
+                          <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">网站维护</span></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                    </table></td>
+                  </tr>
+                  <tr>
+                    <td height="5"><img src="${jpath}/static/images/main_52.gif" width="151" height="5" /></td>
+                  </tr>
+                </table>
+            </div></td>
+          </tr>
+        </table>     
+     </td>
       </tr>
       <tr>
         <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -168,7 +229,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
             <td height="23" background="${jpath}/static/images/main_47.gif" id="imgmenu3" class="menu_title" onmouseover="this.className='menu_title2';" onclick="showsubmenu(3)" onmouseout="this.className='menu_title';" style="cursor:hand"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td width="18%">&nbsp;</td>
-                  <td width="82%" class="STYLE1">安全管理</td>
+                  <td width="82%" class="STYLE1">公告管理</td>
                 </tr>
             </table></td>
           </tr>
@@ -230,10 +291,6 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
   </tr>
 </table>
 <script>
-
-
-
-
 function showsubmenu(sid)
 {
 whichEl = eval("submenu" + sid);
@@ -249,5 +306,4 @@ eval("submenu" + sid + ".style.display=\"none\";");
 imgmenu.background="${jpath}/static/images/main_48.gif";
 }
 }
-
 </script>
