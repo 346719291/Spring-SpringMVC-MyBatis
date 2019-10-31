@@ -24,11 +24,11 @@
        <if test="username != null and username !='' ">
         	AND t.username=#{username}
        </if>
-       ORDER BY t.createTime ASC
+       ORDER BY t.id ASC
     </select>
     <select id="findByPage"  resultMap="base" parameterType="BaseUser">
        SELECT t.* FROM user_info t WHERE 1=1
-        ORDER BY t.createdate
+        ORDER BY t.id
     </select>  
     <select id="count"  resultType="int" parameterType="BaseUser">
        SELECT count(*) FROM user_info t WHERE 1=1 
