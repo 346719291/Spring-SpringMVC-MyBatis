@@ -6,4 +6,6 @@ import com.repository.base.AllBatis;
 
 @AllBatis
 public interface GoodpriceDao extends BaseDao<Goodprice>{
+	
+	
 }

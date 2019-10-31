@@ -14,4 +14,5 @@ public class InsexpageController extends BaseController<Object>{
 	public String index(HttpServletRequest request,Model md)throws Exception{
 		return "index";
 	}
+	
 }
