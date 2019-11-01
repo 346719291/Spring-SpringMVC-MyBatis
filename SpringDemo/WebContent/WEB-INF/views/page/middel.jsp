@@ -52,7 +52,6 @@ document.all("frmTitle").style.display=""
         					<iframe name="I1" height="100%" width="165" src="${jpath }/left" border="0" frameborder="0" scrolling="no">
         						 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。
         					</iframe>
-        					
         				</td>
       				</tr>
    			 	</table> 
@@ -64,9 +63,9 @@ document.all("frmTitle").style.display=""
 	    		</SPAN>
 	    	</td>
 	   		<td width="100%" align="center" valign="top">
-	   			<iframe name="I2" height="100%" width="100%" border="0" frameborder="0" src="${jpath }/tab"> 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
-	   		</td> 
-	   		
+	   			<iframe name="I2" height="100%" width="100%" border="0" frameborder="0" src="${jpath }/${name }"> 浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
+	   		</td>
+	   		/////<h1>${name }</h1>
   		</tr>
 	</table>
 </body>
