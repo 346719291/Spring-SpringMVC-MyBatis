@@ -1,8 +1,10 @@
 package com.controller;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,10 +25,7 @@ public class UserController extends BaseController<User>{
 	//private User user;
 	@Autowired
 	private UserServiceImpl service;
-	@RequestMapping("/indexpage") 
-	 public String index(HttpServletRequest request,Model md)throws Exception{
-	 return "index";
-	 }
+	
 	@RequestMapping("/adduser")
 	public String addUser(HttpServletRequest request,HttpServletResponse response) {
 		String loginname = request.getParameter("loginname");
@@ -78,9 +77,9 @@ public class UserController extends BaseController<User>{
 		user.setCreatedate(createdate);
 		boolean b = service.updateUser(user);
 		if (b) {
-			return "/page/success";
+			return "page/success";
 		}else {
-			return "/page/false";
+			return "page/false";
 		}	
 	}
 	
@@ -105,18 +104,20 @@ public class UserController extends BaseController<User>{
 		if (list.get(0) != null) 
 		{ 
 			request.setAttribute("list", list);
-			return "/page/find";
+			return "page/find";
 		}else 
 		{ 
-			return "/page/false"; 
+			return "page/false"; 
 		}	
 	}
 	
 	@RequestMapping("/login")
-	public String login(HttpServletRequest request,HttpServletResponse response) {
+	public String login(HttpServletRequest request,HttpServletResponse response ,Model md) throws ServletException, IOException {
 		String loginname = request.getParameter("loginname");
 		String password = request.getParameter("password");
 		String yanzheng = request.getParameter("yanzheng");
+		System.out.println(loginname);
+		System.out.println(password);
 		HttpSession session=request.getSession();
 		String value = (String) session.getAttribute("sb");
 		User user = new User();
@@ -125,18 +126,15 @@ public class UserController extends BaseController<User>{
 		User user2 = service.login(user);
 		if (user2 != null) 
 		{
-			if (user2.getPassword().equals(password)) {
-				if (yanzheng.equalsIgnoreCase(value)) {
-					return "/page/main";
-				}else {
-					return "/page/false";
-				}
+			if (user2.getPassword().equals(password)) 
+			{
+				return "/page/main";
 			}else {
 				return "/page/false";
 			}
-		}else 
+		}else
 		{ 
-			return "/page/false"; 
-		}	
+			return "/page/false";
+		}
 	}
 }

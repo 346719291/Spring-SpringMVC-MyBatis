@@ -18,19 +18,22 @@ public class BaseServiceImp<T> implements BaseService<T>{
 	protected BaseDao<T> baseDao;
 
 	@Override
-	public void insert(T o) {
+	public boolean insert(T o) {
 		baseDao.insert(o);
+		return false;
 	
 	}
 
 	@Override
-	public void delete(T o) {
+	public boolean delete(T o) {
 		baseDao.delete(o);
+		return false;
 	}
 	
 	@Override
-	public void update(T o) {
+	public boolean update(T o) {
 		baseDao.update(o);
+		return false;
 	}
 
 	@Override
