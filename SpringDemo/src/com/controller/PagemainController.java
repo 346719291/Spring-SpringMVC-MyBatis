@@ -1,4 +1,4 @@
-package com.controller.main;
+package com.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.controller.base.BaseController;
 
 @Controller
-public class Page_MainController  extends BaseController<Object>{
+public class PagemainController extends BaseController<Object>{
 	
 	@RequestMapping("/top")
 	public String top(HttpServletRequest request,Model md)throws Exception{
@@ -26,6 +26,7 @@ public class Page_MainController  extends BaseController<Object>{
 	public String center(HttpServletRequest request,Model md)throws Exception{
 		return "page/center";
 	}
+	
 	
 	@RequestMapping("/down")
 	public String down(HttpServletRequest request,Model md)throws Exception{
@@ -44,6 +45,14 @@ public class Page_MainController  extends BaseController<Object>{
 	@RequestMapping("/tab")
 	public String tab(HttpServletRequest request,Model md)throws Exception{
 		return "page/tab";
+	}
+	
+	/*
+	 * 员工添加网页
+	 */
+	@RequestMapping("/addmanager")
+	public String addManager(HttpServletRequest request,Model md)throws Exception{
+		return "page/employee/tab";
 	}
 	
 }
