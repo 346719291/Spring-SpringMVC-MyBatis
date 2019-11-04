@@ -27,6 +27,7 @@ public class PagemainController extends BaseController<Object>{
 		return "page/center";
 	}
 	
+	
 	@RequestMapping("/down")
 	public String down(HttpServletRequest request,Model md)throws Exception{
 		return "page/down";

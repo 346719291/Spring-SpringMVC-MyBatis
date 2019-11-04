@@ -10,7 +10,7 @@
 </head>
 <frameset rows="110,*,8" frameborder="no" border="0" framespacing="0">
   <frame src="${jpath}/top" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" />
-  <frame src="${jpath}/center" name="mainFrame" id="mainFrame" />
+  <frame src="${jpath}/left" name="mainFrame" id="mainFrame" />
   <frame src="${jpath}/down" name="bottomFrame" scrolling="No" noresize="noresize" id="bottomFrame" />
 </frameset>
 <noframes>
