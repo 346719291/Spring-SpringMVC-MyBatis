@@ -4,8 +4,7 @@
 
     <resultMap id="base" type="BaseUser"></resultMap>
     <select id="find"  resultMap="base" parameterType="BaseUser">
-       SELECT t.* FROM user_inf t 
-       WHERE 1=1 
+       SELECT t.* FROM user_inf t where 1=1
        <if test="id != null and id!='' ">
         	AND t.id=#{id}
        </if>
@@ -26,6 +25,9 @@
        </if>
        ORDER BY t.id ASC
     </select>
+    <select id="login"  resultMap="base" parameterType="BaseUser">
+       SELECT t.* FROM user_inf t where t.loginname=#{loginname}
+    </select>
     <select id="findByPage"  resultMap="base" parameterType="BaseUser">
        SELECT t.* FROM user_info t WHERE 1=1
         ORDER BY t.id
@@ -33,20 +35,20 @@
     <select id="count"  resultType="int" parameterType="BaseUser">
        SELECT count(*) FROM user_info t WHERE 1=1 
     </select>      
-    <insert id="insert"  parameterType="BaseUser">	
+    <insert id="adduser"  parameterType="BaseUser">	
  	<![CDATA[
 	INSERT INTO user_inf(id,loginname,password,status,createdate,username) 
 	VALUES (#{id},#{loginname},#{password},#{status},#{createdate},#{username})
 	]]>  
 	</insert>
-	<delete id="delete" parameterType="BaseUser">
+	<delete id="deleteuser" parameterType="BaseUser">
 	DELETE FROM user_inf  
 	WHERE 
 	<if test="id != null and id!='' ">
         id=#{id}
     </if>
 	<if test="loginname != null and loginname !='' ">
-        goodId=#{goodId}
+        loginname=#{loginname}
     </if> 
 	</delete>
 	<delete id="deleteBatch" parameterType="java.util.List">
@@ -57,7 +59,7 @@
 		</foreach>
 		)
 	</delete>
-	<update id="update" parameterType="BaseUser">
+	<update id="updateuser" parameterType="BaseUser">
 		UPDATE user_inf 
 		SET loginname=#{loginname},
 			password=#{password},
