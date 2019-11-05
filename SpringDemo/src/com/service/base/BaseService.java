@@ -12,17 +12,17 @@ public interface BaseService<T> {
 	 * @param o 对象
 	 * @return 对象的ID
 	 */
-	public void insert(T o);	
+	public boolean insert(T o);	
 	/**
 	 * 删除一个对象
 	 * @param o  对象
 	 */
-	public void delete(T o);
+	public boolean delete(T o);
 	/**
 	 * 更新一个对象
 	 * @param o 对象       
 	 */
-	public void update(T o);
+	public boolean update(T o);
 	/**
 	 * 获得对象列表
 	 * @param o 对象       
