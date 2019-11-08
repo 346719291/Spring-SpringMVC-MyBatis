@@ -9,6 +9,12 @@
 </head>
 <body>
 <table border="1">		
+			<tr>
+				<td>id</td>
+				<td>登录名</td>
+				<td>用户名</td>
+				<td>密码</td>
+				</tr>
 			<c:forEach items="${list}" var="li" varStatus="status">
 				<tr>
 				<td>${li.id}</td>
