@@ -1,19 +1,15 @@
 package com.controller;
 
-import java.lang.ProcessBuilder.Redirect;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
-
 import com.controller.base.BaseController;
+import com.entity.Employee_inf;
+import com.service.Employee_infServiceImpl;
 
 /**
  * 员工管理
@@ -23,25 +19,32 @@ import com.controller.base.BaseController;
 @Controller
 @RequestMapping("/manager")
 public class ManagerController extends BaseController<Object>{
+	@Autowired
+	private Employee_infServiceImpl EmployeeService;
 	
 	/*
 	 * 添加员工
 	 */
-	@RequestMapping("/addmanagerinfo")
-	public String top(HttpServletRequest request,HttpServletResponse response,Model md)throws Exception{
-		//request.setAttribute("name", "addmanager");
-		md.addAttribute("name", "addmanager");
-		System.out.println("你好");
-		//request.getRequestDispatcher("page/middel").forward(request, response);
+	@RequestMapping("/add_em")
+	@ResponseBody
+	public String add(Employee_inf em)throws Exception{
+		EmployeeService.add(em);
 		return "page/middel";
 	}
 	
-	@RequestMapping("/addmrinfo")
-	public String topc(HttpServletRequest request,HttpServletResponse response,Model md)throws Exception{
-		//request.setAttribute("name", "addmanager");
-		md.addAttribute("name", "addmanager");
-		System.out.println("你好");
-		//request.getRequestDispatcher("page/middel").forward(request, response);
-		return "page/NewFile";
+	/**
+	 * 查询员工
+	 * @param em
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/findall")
+	@ResponseBody
+	public String findall(Employee_inf em)throws Exception{
+		List<Employee_inf> list= EmployeeService.FindALL();
+		System.out.println(list);
+		return "page/middel";
 	}
+	
+	
 }
