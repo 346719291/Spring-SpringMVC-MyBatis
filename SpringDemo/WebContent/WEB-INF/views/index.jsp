@@ -49,17 +49,24 @@ body {
                 <td height="25"><div align="center">
                   <input type="password" name="password" class="password" style="width:105px; height:17px; background-color:#292929; border:solid 1px #7dbad7; font-size:12px; color:#6cd0ff">
                 </div></td>
+                <!-- </tr>
+                <tr> -->
                 <td height="25">
 	                <div align="left" >
 	                	<a>
 	                		<%--<img src="${jpath}/static/images/dl.gif" width="49" height="18" border="0"> --%>
 	                		<input type="submit" value="登陆" width="49" height="18">
+	                		
 	                	</a>
 	                </div>
 	             </td>
               </tr>
             </table></td>
-            <td width="362" background="${jpath}/static/images/login_07.gif">&nbsp;</td>
+            <td width="362" background="${jpath}/static/images/login_07.gif">&nbsp;
+            			<a href="${jpath}/registration">
+	                	注册
+	                	</a>
+            </td>
           </tr>
         </table></td>
       </tr>

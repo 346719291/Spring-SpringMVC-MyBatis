@@ -31,7 +31,10 @@
     <select id="findByPage"  resultMap="base" parameterType="BaseUser">
        SELECT t.* FROM user_info t WHERE 1=1
         ORDER BY t.id
-    </select>  
+    </select> 
+    <select id="findname"  resultMap="base" parameterType="BaseUser">
+       SELECT t.* FROM user_info t WHERE t.loginname=#{loginname}
+    </select> 
     <select id="count"  resultType="int" parameterType="BaseUser">
        SELECT count(*) FROM user_info t WHERE 1=1 
     </select>      

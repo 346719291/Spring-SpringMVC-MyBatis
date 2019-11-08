@@ -26,6 +26,15 @@ public class UserController extends BaseController<User>{
 	@Autowired
 	private UserServiceImpl service;
 	
+	@RequestMapping("/add")
+	public String add(HttpServletRequest request,Model md)throws Exception{
+		return "page/user/adduser";
+	}
+	@RequestMapping("/registration")
+	public String registration(HttpServletRequest request,Model md)throws Exception{
+		return "page/registration";
+	}
+	
 	@RequestMapping("/adduser")
 	public String addUser(HttpServletRequest request,HttpServletResponse response) {
 		String loginname = request.getParameter("loginname");
@@ -45,6 +54,30 @@ public class UserController extends BaseController<User>{
 		boolean b = service.addUser(user);
 		if (b) {
 			return "/page/success";
+		}else {
+			return "/page/false";
+		}
+	}
+	
+	@RequestMapping("/loginregistration")
+	public String registration(HttpServletRequest request,HttpServletResponse response) {
+		String loginname = request.getParameter("loginname");
+		String password = request.getParameter("password");
+		String username = request.getParameter("username");
+		String status = request.getParameter("status");
+		java.util.Date date = new java.util.Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String createdate = dateFormat.format(date);
+		//String createdate = request.getParameter("createdate");
+		User user = new User();
+		user.setLoginname(loginname);
+		user.setPassword(password);
+		user.setUsername(username);
+		user.setStatus(status);
+		user.setCreatedate(createdate);
+		boolean b = service.addUser(user);
+		if (b) {
+			return "/index";
 		}else {
 			return "/page/false";
 		}
@@ -104,11 +137,32 @@ public class UserController extends BaseController<User>{
 		if (list.get(0) != null) 
 		{ 
 			request.setAttribute("list", list);
-			return "page/find";
+			return "page/user/listuser";
 		}else 
 		{ 
 			return "page/false"; 
 		}	
+	}
+	
+	@RequestMapping("/findname")
+	public void findname(HttpServletRequest request,HttpServletResponse response) throws IOException {
+		//String id = request.getParameter("id");
+		String loginname = request.getParameter("loginname");
+		User user = new User();
+		//user.setId(id);
+		user.setLoginname(loginname);
+		User user1 = service.findname(user);
+		if (loginname!=null||loginname!=""||user1.getPassword()!="") {
+			if (user1.getPassword() != null) 
+			{ 
+				response.getWriter().write("登录名已被注册");
+			}else 
+			{ 
+				response.getWriter().write("登录名可以使用");
+			}	
+		}else {
+			response.getWriter().write("请输入登录名");
+		}
 	}
 	
 	@RequestMapping("/login")
@@ -128,6 +182,7 @@ public class UserController extends BaseController<User>{
 		{
 			if (user2.getPassword().equals(password)) 
 			{
+				request.getSession().setAttribute("username",user2.getUsername());
 				return "/page/main";
 			}else {
 				return "/page/false";

@@ -22,4 +22,6 @@ public interface UserDao extends BaseDao<User>{
 	public boolean updateuser(User user);
 
 	public User login(User user);
+
+	public User findname(User user);
 }

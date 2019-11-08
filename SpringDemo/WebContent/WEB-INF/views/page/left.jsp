@@ -237,7 +237,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
                           <td width="16%" height="25"><div align="center"><img src="${jpath}/static/images/left.gif" width="10" height="10" /></div></td>
                           <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                               <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">系统配置</span></td>
+                                <td height="20" onClick="user_list(this)" ifHerf="${jpath }/find" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">查看管理员<%-- <a href="${jpath}/find" target='I2'>查看管理员</a> --%></span></td>
                               </tr>
                           </table></td>
                         </tr>
@@ -245,7 +245,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
                           <td height="23"><div align="center"><img src="${jpath}/static/images/left.gif" width="10" height="10" /></div></td>
                           <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                               <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">修改用户密码</span></td>
+                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${jpath}/find" target='I2'>修改用户密码</a></span></td>
                               </tr>
                           </table></td>
                         </tr>
@@ -253,7 +253,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
                           <td height="23"><div align="center"><img src="${jpath}/static/images/left.gif" width="10" height="10" /></div></td>
                           <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                               <tr>
-                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">数据更新</span></td>
+                                <td height="20" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3"><a href="${jpath}/registration" target='I2'>增加管理员</a></span></td>
                               </tr>
                           </table></td>
                         </tr>
@@ -342,7 +342,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
   <tr>
     <td height="18" background="${jpath}/static/images/main_58.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td height="18" valign="bottom"><div align="center" class="STYLE3">版本：2008V1.0</div></td>
+        <td height="18" valign="bottom"><div align="center" class="STYLE3">版本：2019V1.0</div></td>
       </tr>
     </table></td>
    
@@ -372,8 +372,15 @@ imgmenu.background="${jpath}/static/images/main_48.gif";
 }
 }
 
-//新增加的管理员的跳转页面
+//用户添加的跳转页面
 function newmanager_add(_this){
+	
+	var info= $(_this).attr("ifHerf");
+
+	$(".cenger_ight iframe").attr("src",info);
+}
+//管理员查看
+function user_list(_this){
 	
 	var info= $(_this).attr("ifHerf");
 

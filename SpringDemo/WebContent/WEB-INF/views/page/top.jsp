@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <%@page import="java.text.SimpleDateFormat"%>
+	<%@page import="java.util.*"%>
+	<%@page import="com.entity.User"%>
     <c:set var="jpath" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
@@ -59,7 +62,14 @@ body {
                     <td>&nbsp;</td>
                   </tr>
                 </table></td>
-                <td width="220" valign="bottom"  nowrap="nowrap"><div align="right"><span class="STYLE1"><span class="STYLE2">■</span> 今天是：20087年5月12日 星期一</span></div></td>
+                <td width="220" valign="bottom"  nowrap="nowrap"><div align="right"><span class="STYLE1" id="time"><span class="STYLE2">■</span> 
+                <%
+			Date d = new Date();
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss EEEE");
+			String now = df.format(d);
+			%>
+			<%=now %>
+            </span></div></td>
               </tr>
             </table></td>
             <td width="21"><img src="${jpath}/static/images/main_11.gif" width="21" height="38"></td>
@@ -84,7 +94,10 @@ body {
         <td width="177" height="28" background="${jpath}/static/images/main_32.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="20%"  height="22">&nbsp;</td>
-            <td width="59%" valign="bottom"><div align="center" class="STYLE1">当前用户：Admin</div></td>
+            <td width="59%" valign="bottom"><div align="center" class="STYLE1">
+            <%String username = request.getSession().getAttribute("username").toString();%>  	
+			当前用户：<%=username %> 
+          	</div></td>
             <td width="21%">&nbsp;</td>
           </tr>
         </table></td>
@@ -150,4 +163,11 @@ body {
   </tr>
 </table>
 </body>
+<script type="text/javascript">
+    $(function () {
+        setInterval(function () {
+            $("#time").load(location.href + " #time");//注意后面DIV的ID前面的空格，很重要！没有空格的话，会出双眼皮！（也可以使用类名）
+        }, 1000);//1秒自动刷新
+    })
+</script>
 </html>
