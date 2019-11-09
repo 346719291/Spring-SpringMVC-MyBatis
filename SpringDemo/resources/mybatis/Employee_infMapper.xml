@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.repository.Employee_infDao">
+
+    <resultMap id="base" type="Employee_inf"></resultMap>
+    <select id="FindALL"  resultMap="base" parameterType="Employee_inf">
+       SELECT * FROM employee_inf
+       <!-- WHERE 1=1 
+       <if test="id != null and id!='' ">
+        	AND t.id=#{id}
+       </if>
+       <if test="goodId != null and goodId!='' ">
+        	AND t.goodId=#{goodId}
+       </if>
+       <if test="natureId != null and natureId!='' ">
+        	AND t.natureId=#{natureId}
+       </if>
+       ORDER BY t.createTime ASC -->
+    </select> 
+    <select id="findByPage"  resultMap="base" parameterType="Employee_inf">
+       SELECT t.* FROM mf_good_price t WHERE 1=1
+        ORDER BY t.createTime
+    </select>  
+    <select id="count"  resultType="int" parameterType="Employee_inf">
+       SELECT count(*) FROM mf_good_price t WHERE 1=1 
+    </select>      
+    <insert id="add"  parameterType="Employee_inf">	
+ 	<![CDATA[
+	INSERT into employee_inf  VALUES
+	(#{id},#{dept_id},#{job_id},#{name},#{crad_id},#{address},#{post_code},#{tel},#{phone},#{qq_num},#{email},#{email},#{sex},#{party},#{birthday},#{race},#{education},#{speciality},#{hobby},#{remark},#{create_date})
+	]]>  
+	</insert>
+	<delete id="delete" parameterType="Employee_inf">
+	DELETE FROM mf_good_price  
+	WHERE 
+	<if test="id != null and id!='' ">
+        id=#{id}
+    </if>
+	<if test="goodId != null and goodId!='' ">
+        goodId=#{goodId}
+    </if> 
+	</delete>
+	<delete id="deleteBatch" parameterType="java.util.List">
+	DELETE from mf_good_price 
+	WHERE id in(
+		<foreach item="o" collection="list" open="" separator="," close="" >
+			#{o.id}
+		</foreach>
+		)
+	</delete>
+	<update id="update" parameterType="Employee_inf">
+		UPDATE mf_good_price 
+		SET sinmb=#{sinmb},
+			miaoshu=#{miaoshu},
+			nowprice=#{nowprice},
+			price=#{price},
+			number=#{number},
+			createTime =#{createTime}
+		WHERE id=#{id}
+	</update>
+	
+</mapper>
