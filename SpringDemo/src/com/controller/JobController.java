@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,6 +14,7 @@ import com.controller.base.BaseController;
 import com.entity.Job;
 import com.service.JobServiceImpl;
 
+@Controller
 public class JobController extends BaseController<Job>{
 
 	@Autowired
@@ -21,6 +23,10 @@ public class JobController extends BaseController<Job>{
 	@RequestMapping("/add_job_jsp")
 	public String add(HttpServletRequest request,Model md)throws Exception{
 		return "page/job/addjob";
+	}
+	@RequestMapping("/update_job_jsp")
+	public String update(HttpServletRequest request,Model md)throws Exception{
+		return "page/job/updatejob";
 	}
 	
 	@RequestMapping("/addjob")
@@ -52,9 +58,11 @@ public class JobController extends BaseController<Job>{
 	}	
 	@RequestMapping("/updateJob")
 	public String updateJob(HttpServletRequest request,HttpServletResponse response) {
+		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		String remark = request.getParameter("remark");
 		Job job = new Job();
+		job.setId(id);
 		job.setName(name);
 		job.setRemark(remark);
 		boolean b = service.update(job);

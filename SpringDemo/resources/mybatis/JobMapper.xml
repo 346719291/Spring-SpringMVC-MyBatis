@@ -23,13 +23,13 @@
     <select id="count"  resultType="int" parameterType="BaseJob">
        SELECT count(*) FROM job_inf t WHERE 1=1 
     </select>      
-    <insert id="adddept"  parameterType="BaseJob">	
+    <insert id="addjob"  parameterType="BaseJob">	
  	<![CDATA[
-	INSERT INTO job_inf(id,name,remark) 
-	VALUES (#{id},#{name},#{remark})
+	INSERT INTO job_inf(name,remark) 
+	VALUES (#{name},#{remark})
 	]]>  
 	</insert>
-	<delete id="deletedept" parameterType="BaseJob">
+	<delete id="deletejob" parameterType="BaseJob">
 	DELETE FROM job_inf  
 	WHERE 
 	<if test="id != null and id!='' ">
@@ -47,7 +47,7 @@
 		</foreach>
 		)
 	</delete>
-	<update id="updatedept" parameterType="BaseJob">
+	<update id="updatejob" parameterType="BaseJob">
 		UPDATE job_inf 
 		SET name=#{name},
 			remark=#{remark}

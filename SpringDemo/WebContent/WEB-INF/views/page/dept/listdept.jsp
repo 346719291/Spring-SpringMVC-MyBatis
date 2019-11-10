@@ -137,6 +137,7 @@ for(i=0;i<cs.length;i++){
             <td width="5%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">id</span></div></td>
             <td width="10%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">部门名</span></div></td>
             <td width="40%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">备注</span></div></td>
+            <td width="20%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">操作</span></div></td>
           </tr>
           <c:forEach items="${list}" var="li" varStatus="status">
 				<tr>
@@ -146,7 +147,8 @@ for(i=0;i<cs.length;i++){
             	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.id}</span></div></td>
             	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.name}</span></div></td>
             	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.remark}</span></div></td>
-				<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE4"><img src="${jpath}/static/image_tab/images/edt.gif" width="16" height="16" />编辑&nbsp; &nbsp;<img src="${jpath}/static/image_tab/images/del.gif" width="16" height="16" />删除</span></div></td>
+				<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE4"><img src="${jpath}/static/image_tab/images/edt.gif" width="16" height="16" /><a href="${jpath}/update_dept_jsp?id=${li.id}&name=${li.name}&remark=${li.remark}">编辑</a>&nbsp; &nbsp;
+				<img src="${jpath}/static/image_tab/images/del.gif" width="16" height="16" /><a href="${pageContext.request.contextPath}/deletedept?id=${li.id}" onclick="javascript:return deleteone()">删除</a></span></div></td>
 				</tr>
 			</c:forEach>
         </table></td>
@@ -181,4 +183,18 @@ for(i=0;i<cs.length;i++){
   </tr>
 </table>
 </body>
+<script type="text/javascript">
+function deleteone()
+{
+var r=confirm("是否删除");
+if (r==true)
+  {
+	return true;
+  }
+else
+  {
+	return false;
+  }
+}
+</script>
 </html>

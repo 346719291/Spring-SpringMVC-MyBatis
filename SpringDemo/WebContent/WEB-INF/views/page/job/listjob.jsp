@@ -86,7 +86,7 @@ for(i=0;i<cs.length;i++){
             <td width="46%" valign="middle"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="5%"><div align="center"><img src="${jpath}/static/image_tab/images/tb.gif" width="16" height="16" /></div></td>
-                <td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[部门管理]-[查看部门]</td>
+                <td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[职位管理]-[查看职位]</td>
               </tr>
             </table></td>
             <td width="54%"><table border="0" align="right" cellpadding="0" cellspacing="0">
@@ -137,19 +137,18 @@ for(i=0;i<cs.length;i++){
             <td width="5%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">id</span></div></td>
             <td width="10%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">职位名</span></div></td>
             <td width="40%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">备注</span></div></td>
+            <td width="20%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">操作</span></div></td>
           </tr>
           <c:forEach items="${list}" var="li" varStatus="status">
 				<tr>
 				<td height="20" bgcolor="#FFFFFF"><div align="center">
               <input type="checkbox" name="checkbox2" value="checkbox" />
             </div></td>
-            <td height="20" bgcolor="#FFFFFF"><div align="center" class="STYLE1">
-              <div align="center">01</div>
-            </div></td>
             	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.id}</span></div></td>
             	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.name}</span></div></td>
             	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.remark}</span></div></td>
-				<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE4"><img src="${jpath}/static/image_tab/images/edt.gif" width="16" height="16" />编辑&nbsp; &nbsp;<img src="${jpath}/static/image_tab/images/del.gif" width="16" height="16" />删除</span></div></td>
+				<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE4"><img src="${jpath}/static/image_tab/images/edt.gif" width="16" height="16" /><a href="${jpath}/update_job_jsp?id=${li.id}&name=${li.name}&remark=${li.remark}">编辑</a>&nbsp; &nbsp;
+				<img src="${jpath}/static/image_tab/images/del.gif" width="16" height="16" /><a href="${pageContext.request.contextPath}/deletejob?id=${li.id}" onclick="javascript:return deleteone()">删除</a></span></div></td>
 				</tr>
 			</c:forEach>
         </table></td>
@@ -184,4 +183,18 @@ for(i=0;i<cs.length;i++){
   </tr>
 </table>
 </body>
+<script type="text/javascript">
+function deleteone()
+{
+var r=confirm("是否删除");
+if (r==true)
+  {
+	return true;
+  }
+else
+  {
+	return false;
+  }
+}
+</script>
 </html>
