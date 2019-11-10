@@ -11,7 +11,7 @@
 <h1>管理员增加页面</h1>
 <hr>
 <div style="background-color:#D0D0D0;color:blue;">
-	<form action="${pageContext.request.contextPath}/loginregistration">
+	<form action="${pageContext.request.contextPath}/registration">
 	<br/>
 	姓&nbsp;&nbsp;&nbsp;名：<input type="text" name="username"><br/><br/>
 	登录名：<input type="text" name="loginname" id="loginname"><span id="sp1"></span><br/><br/>

@@ -26,11 +26,11 @@ public class UserController extends BaseController<User>{
 	@Autowired
 	private UserServiceImpl service;
 	
-	@RequestMapping("/add")
+	@RequestMapping("/add_user_jsp")
 	public String add(HttpServletRequest request,Model md)throws Exception{
 		return "page/user/adduser";
 	}
-	@RequestMapping("/registration")
+	@RequestMapping("/registration_jsp")
 	public String registration(HttpServletRequest request,Model md)throws Exception{
 		return "page/registration";
 	}
@@ -44,7 +44,6 @@ public class UserController extends BaseController<User>{
 		java.util.Date date = new java.util.Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String createdate = dateFormat.format(date);
-		//String createdate = request.getParameter("createdate");
 		User user = new User();
 		user.setLoginname(loginname);
 		user.setPassword(password);
@@ -59,7 +58,7 @@ public class UserController extends BaseController<User>{
 		}
 	}
 	
-	@RequestMapping("/loginregistration")
+	@RequestMapping("/registration")
 	public String registration(HttpServletRequest request,HttpServletResponse response) {
 		String loginname = request.getParameter("loginname");
 		String password = request.getParameter("password");
@@ -116,7 +115,7 @@ public class UserController extends BaseController<User>{
 		}	
 	}
 	
-	@RequestMapping("/find")
+	@RequestMapping("/finduser")
 	public String find(HttpServletRequest request,HttpServletResponse response) {
 		//String id = request.getParameter("id");
 		String loginname = request.getParameter("loginname");
@@ -131,9 +130,7 @@ public class UserController extends BaseController<User>{
 		user.setUsername(username);
 		user.setStatus(status);
 		user.setCreatedate(createdate);
-		System.out.println(user);
 		List<User> list = service.find(user);
-		System.out.println(list);
 		if (list.get(0) != null) 
 		{ 
 			request.setAttribute("list", list);

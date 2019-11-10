@@ -25,6 +25,29 @@
        </if>
        ORDER BY t.id ASC
     </select>
+   <!--  模糊查询 -->
+    <select id="find_like"  resultMap="base" parameterType="BaseUser">
+       SELECT t.* FROM user_inf t where 1=1
+       <if test="id != null and id!='' ">
+        	AND t.id = #{id}
+       </if>
+       <if test="loginname != null and loginname !='' ">
+        	AND t.loginname like '%#{loginname}%'
+       </if>
+       <if test="password != null and password !='' ">
+        	AND t.password=#{password}
+       </if>
+       <if test="status != null and status !='' ">
+        	AND t.status=#{status}
+       </if>
+       <if test="createdate != null and createdate !='' ">
+        	AND t.createdate=#{createdate}
+       </if>
+       <if test="username != null and username !='' ">
+        	AND t.username like '%#{username}%'
+       </if>
+       ORDER BY t.id ASC
+    </select>
     <select id="login"  resultMap="base" parameterType="BaseUser">
        SELECT t.* FROM user_inf t where t.loginname=#{loginname}
     </select>
