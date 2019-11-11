@@ -2,6 +2,10 @@ package com.controller;
 
 
 import java.util.List;
+import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,9 +31,13 @@ public class ManagerController extends BaseController<Object>{
 	 */
 	@RequestMapping("/add_em")
 	@ResponseBody
-	public String add(Employee_inf em)throws Exception{
+	public void add(Employee_inf em,HttpServletRequest Reuqest,HttpServletResponse Response)throws Exception{
+		em.setId(com.common.utils.UUID.uid());
+		String name =Reuqest.getParameter("name");
+		String sfz =Reuqest.getParameter("crad_id");
+		em.setName(name);
+		em.setCrad_id(sfz);
 		EmployeeService.add(em);
-		return "page/middel";
 	}
 	
 	/**
@@ -40,11 +48,19 @@ public class ManagerController extends BaseController<Object>{
 	 */
 	@RequestMapping("/findall")
 	@ResponseBody
-	public String findall(Employee_inf em)throws Exception{
+	public List<Employee_inf> findall(Employee_inf em)throws Exception{
 		List<Employee_inf> list= EmployeeService.FindALL();
 		System.out.println(list);
-		return "page/middel";
+		return list;
 	}
 	
+	/*
+	 * 删除员工
+	 */
+	@RequestMapping("/delmanp")
+	@ResponseBody
+	public void delmanp(Employee_inf o)throws Exception{
+		EmployeeService.delete_emp(o);
+	}
 	
 }

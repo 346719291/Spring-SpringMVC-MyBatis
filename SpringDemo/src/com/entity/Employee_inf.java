@@ -10,7 +10,7 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("Employee_inf")
 public class Employee_inf {
-		public int id;
+		public String id;
 	 public int dept_id; //INT(11) NOT NULL,
 	 public int job_id; //INT(11) NOT NULL,
 	 public String name;// VARCHAR(20) NOT NULL,
@@ -34,9 +34,10 @@ public class Employee_inf {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Employee_inf(int id, int dept_id, int job_id, String name, String crad_id, String address, String post_code,
-			String tel, String phone, String qq_num, String email, String sex, String party, String birthday,
-			String race, String education, String speciality, String hobby, String remark, String create_date) {
+	public Employee_inf(String id, int dept_id, int job_id, String name, String crad_id, String address,
+			String post_code, String tel, String phone, String qq_num, String email, String sex, String party,
+			String birthday, String race, String education, String speciality, String hobby, String remark,
+			String create_date) {
 		super();
 		this.id = id;
 		this.dept_id = dept_id;
@@ -59,10 +60,10 @@ public class Employee_inf {
 		this.remark = remark;
 		this.create_date = create_date;
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public int getDept_id() {
@@ -187,5 +188,5 @@ public class Employee_inf {
 				+ ", birthday=" + birthday + ", race=" + race + ", education=" + education + ", speciality="
 				+ speciality + ", hobby=" + hobby + ", remark=" + remark + ", create_date=" + create_date + "]";
 	}
-	 
+	
 }

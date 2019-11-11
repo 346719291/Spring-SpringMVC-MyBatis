@@ -26,19 +26,14 @@
     </select>      
     <insert id="add"  parameterType="Employee_inf">	
  	<![CDATA[
-	INSERT into employee_inf  VALUES
-	(#{id},#{dept_id},#{job_id},#{name},#{crad_id},#{address},#{post_code},#{tel},#{phone},#{qq_num},#{email},#{email},#{sex},#{party},#{birthday},#{race},#{education},#{speciality},#{hobby},#{remark},#{create_date})
+ 	INSERT into employee_inf(id,`name`,crad_id) VALUES (#{id},#{name},#{crad_id})
 	]]>  
+	<!-- INSERT into employee_inf  VALUES
+	(#{id},#{dept_id},#{job_id},#{name},#{crad_id},#{address},#{post_code},#{tel},#{phone},#{qq_num},#{email},#{email},#{sex},#{party},#{birthday},#{race},#{education},#{speciality},#{hobby},#{remark},#{create_date}) -->
 	</insert>
-	<delete id="delete" parameterType="Employee_inf">
+	<delete id="delete_emp" parameterType="Employee_inf">
 	DELETE FROM mf_good_price  
-	WHERE 
-	<if test="id != null and id!='' ">
-        id=#{id}
-    </if>
-	<if test="goodId != null and goodId!='' ">
-        goodId=#{goodId}
-    </if> 
+	WHERE id=#{id}
 	</delete>
 	<delete id="deleteBatch" parameterType="java.util.List">
 	DELETE from mf_good_price 

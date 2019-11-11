@@ -1,6 +1,7 @@
 package com.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import com.controller.base.BaseController;
 public class PagemainController extends BaseController<Object>{
 	
 	@RequestMapping("/top")
+	
 	public String top(HttpServletRequest request,Model md)throws Exception{
 		return "page/top";
 	}
@@ -48,11 +50,30 @@ public class PagemainController extends BaseController<Object>{
 	}
 	
 	/*
+	 * 员工查询网页
+	 */
+	@RequestMapping("/selectmanager")
+	public String selectmanager(HttpServletRequest request,Model md)throws Exception{
+		return "page/employee/tab";
+	}
+	/*
 	 * 员工添加网页
 	 */
 	@RequestMapping("/addmanager")
 	public String addManager(HttpServletRequest request,Model md)throws Exception{
-		return "page/employee/tab";
+		return "page/employee/add_employee";
+	}
+	/**
+	 * 编辑页面跳转
+	 * 
+	 */
+	@RequestMapping("/editer")
+	public String editer(HttpServletRequest request,Model md,HttpServletResponse Reponse)throws Exception{
+		String id= request.getParameter("id");
+		System.out.println("id+++"+id);
+		request.setAttribute("id", id);
+		/* Reponse.sendRedirect("page/employee/editer"); */
+		return "page/employee/editer";
 	}
 	
 }

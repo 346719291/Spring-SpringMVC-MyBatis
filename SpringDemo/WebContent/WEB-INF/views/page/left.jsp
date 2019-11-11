@@ -191,8 +191,8 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
                           <td width="16%" height="25"><div align="center"><img src="${jpath}/static/images/left.gif" width="10" height="10" /></div></td>
                           <td width="84%" height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                               <tr class="info">
-                                <td height="20"  onClick="newmanager_add(this)" ifHerf="${jpath }/addmanager" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'">
-                               		 <span class="STYLE3">新增员工</span>
+                                <td height="20"  onClick="newmanager_add(this)" ifHerf="${jpath }/selectmanager" style="cursor:hand" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'">
+                               		 <span class="STYLE3">查看员工</span>
                                 </td>
                               </tr>
                           </table></td>
@@ -201,7 +201,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
                           <td height="23"><div align="center"><img src="${jpath}/static/images/left.gif" width="10" height="10" /></div></td>
                           <td height="23"><table width="95%" border="0" cellspacing="0" cellpadding="0">
                               <tr class="info">
-                                <td height="20" style="cursor:hand"  onClick="newmanager_add(this)" ifHerf="${jpath }/left" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">查看员工</span></td>
+                                <td height="20" style="cursor:hand"  onClick="newmanager_add(this)" ifHerf="${jpath }/addmanager" onmouseover="this.style.borderStyle='solid';this.style.borderWidth='1';borderColor='#7bc4d3'; "onmouseout="this.style.borderStyle='none'"><span class="STYLE3">新增员工</span></td>
                               </tr>
                           </table></td>
                         </tr>
@@ -350,7 +350,7 @@ document.write("<div id=tt style=height:"+he+";overflow:hidden>")
   
 </table>
  <div class="cenger_ight" >
-	<iframe name="I2" height="1000px;"  width="100%" border="0" frameborder="0" src="${jpath}/left">浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
+	<iframe name="I2" height="1000px;"  width="100%" border="0" frameborder="0" src="${jpath}/">浏览器不支持嵌入式框架，或被配置为不显示嵌入式框架。</iframe>
 </div>
 
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">

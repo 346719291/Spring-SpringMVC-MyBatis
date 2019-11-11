@@ -20,9 +20,7 @@ import com.service.UserServiceImpl;
 
 @Controller
 public class UserController extends BaseController<User>{
-	//@Autowired
-	//@Resource
-	//private User user;
+	
 	@Autowired
 	private UserServiceImpl service;
 	

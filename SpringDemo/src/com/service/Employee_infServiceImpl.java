@@ -28,4 +28,10 @@ public class Employee_infServiceImpl extends BaseServiceImp<Employee_inf> implem
 		// TODO Auto-generated method stub
 		return EmDao.FindALL();
 	}
+
+	@Override
+	public void delete_emp(Employee_inf o) {
+		EmDao.delete_emp(o);
+		
+	}
 }

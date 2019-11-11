@@ -36,7 +36,5 @@ public interface BaseService<T> {
 	 * @return List
 	 */
 	
-	public Page<T> findByPage(T o,Page<T> page);	
-	
-	
+	public Page<T> findByPage(T o,Page<T> page);
 }
