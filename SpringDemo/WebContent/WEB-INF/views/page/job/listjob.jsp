@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>管理员查看</title>
+<title>职位查看</title>
 <style type="text/css">
 <!--
 body {
@@ -86,7 +86,7 @@ for(i=0;i<cs.length;i++){
             <td width="46%" valign="middle"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="5%"><div align="center"><img src="${jpath}/static/image_tab/images/tb.gif" width="16" height="16" /></div></td>
-                <td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[管理员管理]-[查看管理员]</td>
+                <td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[职位管理]-[查看职位]</td>
               </tr>
             </table></td>
             <td width="54%"><table border="0" align="right" cellpadding="0" cellspacing="0">
@@ -135,12 +135,9 @@ for(i=0;i<cs.length;i++){
               <input type="checkbox" name="checkbox" value="checkbox" />
             </div></td>
             <td width="5%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">id</span></div></td>
-            <td width="10%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">登录名</span></div></td>
-            <td width="10%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">姓名</span></div></td>
-          	<td width="15%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">密码</span></div></td>
-          	<td width="5%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">身份</span></div></td>
-          	<td width="40%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">创建时间</span></div></td>
-          	<td width="15%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">操作</span></div></td>
+            <td width="10%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">职位名</span></div></td>
+            <td width="40%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">备注</span></div></td>
+            <td width="20%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">操作</span></div></td>
           </tr>
           <c:forEach items="${list}" var="li" varStatus="status">
 				<tr>
@@ -148,13 +145,10 @@ for(i=0;i<cs.length;i++){
               <input type="checkbox" name="checkbox2" value="checkbox" />
             </div></td>
             	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.id}</span></div></td>
-            	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.loginname}</span></div></td>
-            	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.username}</span></div></td>
-            	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.password}</span></div></td>
-            	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.status}</span></div></td>
-            	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.createdate}</span></div></td>
-				<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE4"><img src="${jpath}/static/image_tab/images/edt.gif" width="16" height="16" /><a href="${jpath}/update_user_jsp?id=${li.id}&loginname=${li.loginname}&username=${li.username}&password=${li.password}&status=${li.status}&createdate=${li.createdate}">编辑</a>&nbsp; &nbsp;
-				<img src="${jpath}/static/image_tab/images/del.gif" width="16" height="16" /><a href="${pageContext.request.contextPath}/deleteuser?id=${li.id}" onclick="javascript:return deleteone()">删除</a></span></div></td>
+            	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.name}</span></div></td>
+            	<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE1">${li.remark}</span></div></td>
+				<td height="20" bgcolor="#FFFFFF"><div align="center"><span class="STYLE4"><img src="${jpath}/static/image_tab/images/edt.gif" width="16" height="16" /><a href="${jpath}/update_job_jsp?id=${li.id}&name=${li.name}&remark=${li.remark}">编辑</a>&nbsp; &nbsp;
+				<img src="${jpath}/static/image_tab/images/del.gif" width="16" height="16" /><a href="${pageContext.request.contextPath}/deletejob?id=${li.id}" onclick="javascript:return deleteone()">删除</a></span></div></td>
 				</tr>
 			</c:forEach>
         </table></td>

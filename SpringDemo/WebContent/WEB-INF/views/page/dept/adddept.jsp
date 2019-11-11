@@ -84,7 +84,7 @@ for(i=0;i<cs.length;i++){
             <td width="46%" valign="middle"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="5%"><div align="center"><img src="${jpath}/static/image_tab/images/tb.gif" width="16" height="16" /></div></td>
-                <td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[管理员管理]-[增加管理员]</td>
+                <td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[部门管理]-[增加部门]</td>
               </tr>
             </table></td>
 
@@ -95,67 +95,31 @@ for(i=0;i<cs.length;i++){
     </table></td>	
   </tr>
 </table>
-<div>
-	<form action="${pageContext.request.contextPath}/adduser">
+	<div>
+	<form action="${pageContext.request.contextPath}/adddept">
 	<br/>
-	姓&nbsp;&nbsp;&nbsp;名：<input type="text" class="username" name="username"><br/><br/>
-	登录名：<input type="text" class="loginname" name="loginname" id="loginname"><span id="sp1"></span><br/><br/>
-	密&nbsp;&nbsp;&nbsp;码：<input type="password" class="password"  id="password" name="password">
-		<input type="button" class="display" id="display" value="显示密码"><br/><br/>
-	身份（1/0）：<select class="status" name="status" style="width:50px">
-				<option value="0">0</option>
-				<option value="1">1</option>
-				</select><br/><br/>
-	<input type="submit" style="width:80px;height:30px;" value="注册"><!-- onclick="yanzheng()" -->
+	部门名：<input type="text" class="name" name="name"><br/><br/>
+	备&nbsp;&nbsp;&nbsp;注：<input type="text" class="remark" name="remark" style="width:170px;height:50px"><br/><br/>
+	<input type="button" onclick="yanzheng()" value="添加" style="width:80px;height:30px;">
 	</form>
-	</div>
+	</div>	
 </body>
-<script type="text/javascript">
-$(function(){
-	$("#loginname").blur(function(){
-		var json={
-			loginname:$("#loginname").val()
-		};
-		$("#sp1").load("/SpringDemo/findname",json,function(data,text,XMLHTTPRequest){
-			console.log(data);
-			console.log(text);
-			console.log(XMLHTTPRequest);
-		})
-	});
-})
-$(function(){
-	$("#display").mousedown(function(){
-		$("#password").attr("type", "text");
-		$("#display").attr("value","隐藏密码");
-	});
-	$("#display").mouseup(function(){
-		$("#password").attr("type", "password");
-		$("#display").attr("value","显示密码");
-	});
-});
+<script>
 function yanzheng(){	
-	var username = /^[\u4E00-\u9FA5]{1,6}$/;
-	var loginname = /^[\u4E00-\u9FA5]{1,6}$/;
-	var a=$(".username").val();
-	var b=$(".loginname").val();
-	if(!name.test(a)||!name.test(b)){
+	var name = /^[\u4E00-\u9FA5]{1,10}$/;
+	var s=$(".name").val();
+	if(!name.test(s)){
 		alert("不能输入数字");
 	}
 	 else{
-		var username=$(".username").val();
-		var loginname=$(".loginname").val();
-		var password=$(".password").val();
-		var display=$(".display").val();
-		var status=$(".status").val();
+		var name=$(".name").val();
+		var remark=$(".remark").val();
 	 	var parem={
-	 			username:username,
-	 			loginname:loginname,
-	 			password:password,
-	 			display:display,
-	 			status:status
+	 			name:name,
+	 			remark:remark
 	 	}
 	 	alert("添加成功");
-		$.post("${pageContext.request.contextPath}/adduser",parem);
+		$.post("${pageContext.request.contextPath}/adddept",parem);
 		} 
 }
 </script>

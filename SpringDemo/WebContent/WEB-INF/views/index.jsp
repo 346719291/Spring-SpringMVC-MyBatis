@@ -63,7 +63,7 @@ body {
               </tr>
             </table></td>
             <td width="362" background="${jpath}/static/images/login_07.gif">&nbsp;
-            			<a href="${jpath}/registration">
+            			<a href="${jpath}/registration_jsp">
 	                	注册
 	                	</a>
             </td>
