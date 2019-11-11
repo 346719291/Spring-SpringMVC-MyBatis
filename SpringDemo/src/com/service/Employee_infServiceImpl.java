@@ -9,7 +9,6 @@ import com.entity.Employee_inf;
 import com.repository.Employee_infDao;
 import com.service.base.BaseServiceImp;
 
-
 @Service("Employee_infService")
 public class Employee_infServiceImpl extends BaseServiceImp<Employee_inf> implements Employee_infService{
 	@Autowired
@@ -33,5 +32,16 @@ public class Employee_infServiceImpl extends BaseServiceImp<Employee_inf> implem
 	public void delete_emp(Employee_inf o) {
 		EmDao.delete_emp(o);
 		
+	}
+
+	@Override
+	public List<Employee_inf> FindById(Employee_inf id) {
+		// TODO Auto-generated method stub
+		return EmDao.FindById(id);
+	}
+
+	@Override
+	public void addnewuser(Employee_inf em) {
+		EmDao.addnewuser(em);
 	}
 }

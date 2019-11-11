@@ -6,9 +6,11 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.controller.base.BaseController;
@@ -48,10 +50,30 @@ public class ManagerController extends BaseController<Object>{
 	 */
 	@RequestMapping("/findall")
 	@ResponseBody
-	public List<Employee_inf> findall(Employee_inf em)throws Exception{
+	public List<Employee_inf> findall(Employee_inf em,HttpServletRequest Request)throws Exception{
 		List<Employee_inf> list= EmployeeService.FindALL();
-		System.out.println(list);
 		return list;
+	}
+	
+	
+	@RequestMapping("/findallin")
+	public String findallin(Employee_inf em,HttpServletRequest request,HttpServletResponse Response,Model md)throws Exception{
+		String id=request.getParameter("id");
+		em.setId(id);
+		HttpSession session=request.getSession();
+		List<Employee_inf> list= EmployeeService.FindById(em);
+		session.setAttribute("list", list);
+		return "page/employee/editerss";
+	}
+	
+	
+	/*
+	 * 添加员工
+	 */
+	@RequestMapping("/addnewuser")
+	@ResponseBody
+	public void addnewuser(Employee_inf em)throws Exception{
+		EmployeeService.addnewuser(em);
 	}
 	
 	/*

@@ -20,9 +20,12 @@
     <select id="findByPage"  resultMap="base" parameterType="Employee_inf">
        SELECT t.* FROM mf_good_price t WHERE 1=1
         ORDER BY t.createTime
+    </select> 
+    <select id="FindById"  resultMap="base" parameterType="Employee_inf">
+       SELECT * FROM employee_inf WHERE id=#{id}
     </select>  
     <select id="count"  resultType="int" parameterType="Employee_inf">
-       SELECT count(*) FROM mf_good_price t WHERE 1=1 
+       SELECT count(*) FROM employee_inf  WHERE 1=1 
     </select>      
     <insert id="add"  parameterType="Employee_inf">	
  	<![CDATA[
@@ -30,6 +33,13 @@
 	]]>  
 	<!-- INSERT into employee_inf  VALUES
 	(#{id},#{dept_id},#{job_id},#{name},#{crad_id},#{address},#{post_code},#{tel},#{phone},#{qq_num},#{email},#{email},#{sex},#{party},#{birthday},#{race},#{education},#{speciality},#{hobby},#{remark},#{create_date}) -->
+	</insert>
+	 <insert id="addnewuser"  parameterType="Employee_inf">	
+ 	<![CDATA[
+ 	INSERT into employee_inf  VALUES
+	(#{id},#{dept_id},#{job_id},#{name},#{crad_id},#{address},#{post_code},#{tel},#{phone},#{qq_num},#{email},#{email},#{sex},#{party},#{birthday},#{race},#{education},#{speciality},#{hobby},#{remark},#{create_date}) -->
+	
+	]]>  
 	</insert>
 	<delete id="delete_emp" parameterType="Employee_inf">
 	DELETE FROM mf_good_price  

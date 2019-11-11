@@ -11,5 +11,7 @@ public interface Employee_infDao extends BaseDao<Employee_inf>{
 	//添加员工
 	public void add(Employee_inf em);
 	public List<Employee_inf> FindALL();
+	public List<Employee_inf> FindById(Employee_inf id);
 	public void delete_emp(Employee_inf o);
+	public void addnewuser(Employee_inf em);
 }
