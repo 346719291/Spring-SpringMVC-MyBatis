@@ -16,6 +16,10 @@
        </if>
        ORDER BY t.id ASC
     </select>
+    <select id="findsome"  resultMap="base" parameterType="BaseJob">
+       SELECT t.* FROM job_inf t where t.name like "%"#{name}"%"
+       ORDER BY t.id ASC
+    </select>
     <select id="findByPage"  resultMap="base" parameterType="BaseJob">
        SELECT t.* FROM job_inf t WHERE 1=1
         ORDER BY t.id

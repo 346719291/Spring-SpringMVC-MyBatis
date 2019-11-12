@@ -61,5 +61,9 @@ public class UserServiceImpl implements UserService{
 	public User findname(User user) {
 		return userdao.findname(user);
 	}
+
+	public List<User> find_some(User user) {
+		return userdao.find_some(user);
+	}
 	
 }

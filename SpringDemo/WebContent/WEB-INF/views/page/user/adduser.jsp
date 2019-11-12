@@ -106,7 +106,7 @@ for(i=0;i<cs.length;i++){
 				<option value="0">0</option>
 				<option value="1">1</option>
 				</select><br/><br/>
-	<input type="submit" style="width:80px;height:30px;" value="注册"><!-- onclick="yanzheng()" -->
+	<input type="submit" style="width:80px;height:30px;" value="添加"><!-- onclick="yanzheng()" -->
 	</form>
 	</div>
 </body>

@@ -39,4 +39,8 @@ public class JobServiceImpl implements JobService{
 		return jobDao.findbypage(job, page);
 	}
 
+	public List<Job> findsome(Job job) {
+		return jobDao.findsome(job);
+	}
+
 }

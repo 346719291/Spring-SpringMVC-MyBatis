@@ -92,4 +92,19 @@ public class JobController extends BaseController<Job>{
 			return "page/false"; 
 		}	
 	}
+	@RequestMapping("/find_somejob")
+	public String find_somejob(HttpServletRequest request,HttpServletResponse response) {
+		String name = request.getParameter("name");
+		Job job = new Job();
+		job.setName(name);
+		List<Job> list = service.findsome(job);
+		if (list.get(0) != null) 
+		{ 
+			request.setAttribute("list", list);
+			return "page/job/listjob";
+		}else 
+		{ 
+			return "page/false"; 
+		}	
+	}
 }

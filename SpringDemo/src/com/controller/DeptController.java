@@ -91,4 +91,19 @@ public class DeptController extends BaseController<Dept>{
 			return "page/false"; 
 		}	
 	}
+	@RequestMapping("/find_somedept")
+	public String find_somedept(HttpServletRequest request,HttpServletResponse response) {
+		String name = request.getParameter("name");
+		Dept dept = new Dept();
+		dept.setName(name);
+		List<Dept> list = service.findsome(dept);
+		if (list.get(0) != null) 
+		{ 
+			request.setAttribute("list", list);
+			return "page/dept/listdept"; 
+		}else 
+		{ 
+			return "page/false"; 
+		}	
+	}
 }

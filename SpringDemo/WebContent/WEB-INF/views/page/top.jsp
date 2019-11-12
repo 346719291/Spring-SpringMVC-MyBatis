@@ -56,7 +56,7 @@ body {
                     <td width="50"><div align="center"><img src="${jpath}/static/images/main_14.gif" width="48" height="19"></div></td>
                     <td width="50"><div align="center"><img src="${jpath}/static/images/main_16.gif" width="48" height="19"></div></td>
                     <td width="50"><div align="center"><img src="${jpath}/static/images/main_18.gif" width="48" height="19"></div></td>
-                    <td width="50"><div align="center"><img src="${jpath}/static/images/main_20.gif" width="48" height="19"></div></td>
+                    <td width="50"><div align="center"><img src="${jpath}/static/images/main_20.gif" width="48" height="19" onclick="back()"></div></td>
                     <td width="26"><div align="center"><img src="${jpath}/static/images/main_21.gif" width="26" height="19"></div></td>
                     <td width="100"><div align="center"><img src="${jpath}/static/images/main_22.gif" width="98" height="19"></div></td>
                     <td>&nbsp;</td>

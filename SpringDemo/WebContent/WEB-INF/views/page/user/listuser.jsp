@@ -127,8 +127,21 @@ for(i=0;i<cs.length;i++){
   </tr>
   <tr>
     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr width="100%">
+    <td>
+    <form action="${jpath}/find_someuser"> 
+    登录名：<input type="text" name="loginname">
+    用户名：<input type="text" name="username">
+    身份（1/0）：<select class="status" name="status" style="width:50px">
+                <option value="">null</option>
+				<option value="0">0</option>
+				<option value="1">1</option>
+				</select>
+    <input type="submit" value="查询">
+    </form>
+    </td>
+    </tr>
       <tr>
-        <td width="8" background="${jpath}/static/image_tab/images/tab_12.gif">&nbsp;</td>
         <td><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="b5d6e6" onmouseover="changeto()"  onmouseout="changeback()">
           <tr>
             <td width="3%" height="22" background="${jpath}/static/image_tab/images/bg.gif" bgcolor="#FFFFFF"><div align="center">

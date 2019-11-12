@@ -38,4 +38,8 @@ public class DeptServiceImpl implements DeptService{
 		return deptDao.findbypage(dept, page);
 	}
 
+	public List<Dept> findsome(Dept dept) {
+		return deptDao.findsome(dept);
+	}
+
 }

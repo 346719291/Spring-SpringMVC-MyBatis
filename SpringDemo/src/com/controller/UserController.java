@@ -191,4 +191,25 @@ public class UserController extends BaseController<User>{
 			return "/page/false";
 		}
 	}
+	@RequestMapping("/find_someuser")
+	public String find_someuser(HttpServletRequest request,HttpServletResponse response) {
+		String loginname = request.getParameter("loginname");
+		String username = request.getParameter("username");
+		String status = request.getParameter("status");
+		User user = new User();
+		user.setLoginname(loginname);
+		user.setUsername(username);
+		user.setStatus(status);
+		System.out.println("111"+user);
+		List<User> list = service.find_some(user);
+		System.out.println("222"+list);
+		if (list.get(0) != null) 
+		{ 
+			request.setAttribute("list", list);
+			return "page/user/listuser";
+		}else 
+		{ 
+			return "page/false"; 
+		}	
+	}
 }

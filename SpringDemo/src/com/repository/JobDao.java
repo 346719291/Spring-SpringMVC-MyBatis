@@ -19,4 +19,6 @@ public interface JobDao extends BaseDao<Job>{
 	public boolean deletejob(Job job);
 	
 	public boolean updatejob(Job job);
+
+	public List<Job> findsome(Job job);
 }

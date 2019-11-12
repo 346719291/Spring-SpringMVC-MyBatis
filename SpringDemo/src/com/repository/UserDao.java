@@ -24,4 +24,6 @@ public interface UserDao extends BaseDao<User>{
 	public User login(User user);
 
 	public User findname(User user);
+
+	public List<User> find_some(User user);
 }

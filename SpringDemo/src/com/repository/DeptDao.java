@@ -19,4 +19,6 @@ public interface DeptDao extends BaseDao<Dept>{
 	public boolean deletedept(Dept dept);
 	
 	public boolean updatedept(Dept dept);
+
+	public List<Dept> findsome(Dept dept);
 }
